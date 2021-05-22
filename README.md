@@ -1,4 +1,4 @@
-# MultimediaNetworkImageSearch
+# MN_ImageSearch
 # 環境設定 
 pip install Pillow  
 pip install Flask  
