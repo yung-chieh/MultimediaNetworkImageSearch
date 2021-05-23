@@ -1,7 +1,7 @@
 import numpy as np
 from PIL import Image
 from datetime import datetime
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from pathlib import Path
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.vgg16 import VGG16, preprocess_input
