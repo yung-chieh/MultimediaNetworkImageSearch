@@ -52,6 +52,7 @@ def index():
         # Define similarity metric #
         query = fe.extract(img)
         dists = np.linalg.norm(features-query, axis=1)
+        # Search #
         ids = np.argsort(dists)[:5]
         scores = [(dists[id], img_paths[id]) for id in ids]
 
