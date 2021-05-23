@@ -7,6 +7,7 @@ from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.vgg16 import VGG16, preprocess_input
 from tensorflow.keras.models import Model
 
+# Image descriptors #
 class FeatureExtractor:
     def __init__(self):
         base_model = VGG16(weights='imagenet')
@@ -25,6 +26,7 @@ class FeatureExtractor:
 
 app = Flask(__name__)
 
+# Dataset indexing #
 fe = FeatureExtractor()
 for img_path in sorted(Path("./static/img").glob("*.gif")):
     print(img_path)
@@ -46,7 +48,8 @@ def index():
         img = Image.open(file.stream)
         uploaded_img_path = "static/uploaded/" + datetime.now().isoformat().replace(":", ".") + "_" + file.filename
         img.save(uploaded_img_path)
-
+        
+        # Define similarity metric #
         query = fe.extract(img)
         dists = np.linalg.norm(features-query, axis=1)
         ids = np.argsort(dists)[:5]
