@@ -1,4 +1,4 @@
-# MultimediaNetworkImageSearch
+# Multimedia_Network_ImageSearch(HW3)
 ## 環境設定  
     tensorflow>=2.0.0  
     Flask  
